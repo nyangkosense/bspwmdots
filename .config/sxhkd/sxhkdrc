@@ -4,14 +4,14 @@
 
 # terminal emulator
 super + Return
-	st
+	termite
 
 super + l
 	slock
 
 #screenshots	
 print 
-	/home/sebastian/.config/sxhkd/flameshot.sh
+	/home/$USER/.config/sxhkd/flameshot.sh
 
 # program launcher
 super + space
