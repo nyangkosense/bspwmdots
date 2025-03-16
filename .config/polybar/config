@@ -106,7 +106,7 @@ pseudo-transparency = false
 
 [module/bspwm-windows]
 type = custom/script
-exec = ~/.config/polybar/scripts/bspwm-windows.sh
+exec = python3 ~/.config/polybar/scripts/bspwm_windows.py
 interval = 0.5
 format-background = ${color.shade3}
 format-foreground = ${color.shade7}
