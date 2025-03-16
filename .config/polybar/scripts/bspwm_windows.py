@@ -42,7 +42,7 @@ def get_window_titles():
                 if match:
                     title = match.group(1)
                     # Truncate long titles
-                    if len(title) > 50:
+                    if len(title) > 70:
                         title = title[:12] + "..."
                     
                     # Mark if this is the focused window
