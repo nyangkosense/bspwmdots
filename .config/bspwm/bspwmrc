@@ -12,41 +12,37 @@ bspc monitor -d 1 2 3 4 5
 
 # BSPC config
 bspc config border_width         2
-bspc config window_gap           8
+bspc config window_gap           10
 
 bspc config split_ratio          0.52
 bspc config borderless_monocle   true
 bspc config gapless_monocle      true
 bspc config focus_follows_pointer true
 
-# Colors
+# Colors (Nord theme)
 bspc config normal_border_color "#3B4252"
 bspc config active_border_color "#4C566A"
-bspc config focused_border_color "#81A1C1"
+bspc config focused_border_color "#5E81AC"
 bspc config presel_feedback_color "#5E81AC"
 
-# Shadow settings - match the picom.conf settings in the image
-# These are set in picom.conf, but adding them here for reference
-# shadow = false
-# no-dnd-shadow = false
-# no-dock-shadow = false
-# clear-shadow = true
-# shadow-radius = 10
-# shadow-offset-x = -15
-# shadow-offset-y = -15
-# shadow-red = 0.0
-# shadow-green = 0.0
-# shadow-blue = 0.0
-
-# Applications rules
+# Rules
 bspc rule -a Gimp desktop='^5' state=floating follow=on
 bspc rule -a firefox desktop='^2'
 bspc rule -a Thunar desktop='^3' follow=on
-bspc rule -a Spotify desktop='^4'
 bspc rule -a discord desktop='^5'
 
-# Start compositor
-picom --experimental-backends &
+# Autostart
+# Start picom compositor with settings from picom.conf
+picom &
 
 # Set wallpaper
-feh --bg-fill /path/to/your/wallpaper.jpg &
+feh --bg-fill $HOME/wallpapers/nord-mountains.jpg &
+
+# Start polkit agent
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+
+# Start nm-applet
+nm-applet &
+
+# Start notification daemon
+dunst &
