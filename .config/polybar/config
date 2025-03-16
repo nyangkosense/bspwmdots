@@ -109,8 +109,8 @@ type = custom/script
 exec = python3 ~/.config/polybar/scripts/bspwm_windows.py
 interval = 0.5
 format-background = ${color.shade3}
-format-foreground = ${color.shade7}
-format-padding = 2
+format-padding = 0
+
 
 ;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 

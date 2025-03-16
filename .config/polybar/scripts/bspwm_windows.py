@@ -1,19 +1,7 @@
 #!/usr/bin/env python3
 
 import subprocess
-import json
-import sys
 import re
-
-def get_focused_desktop():
-    try:
-        result = subprocess.run(
-            ["bspc", "query", "-D", "-d", "focused"],
-            capture_output=True, text=True, check=True
-        )
-        return result.stdout.strip()
-    except Exception:
-        return None
 
 def get_window_titles():
     try:
@@ -54,7 +42,7 @@ def get_window_titles():
                 if match:
                     title = match.group(1)
                     # Truncate long titles
-                    if len(title) > 12:
+                    if len(title) > 50:
                         title = title[:12] + "..."
                     
                     # Mark if this is the focused window
@@ -73,10 +61,19 @@ def get_window_titles():
         return []
 
 def format_for_polybar(window_data):
+    # Define colors - these match the Nord theme in your polybar config
+    bg_color = "#D8DEE9"  # shade3 from your config - background for center section
+    focused_bg = "#ECEFF4"  # shade1 - white for focused window
+    focused_fg = "#2E3440"  # shade7 - dark for text on focused window
+    unfocused_bg = "#5E81AC"  # shade8/frost4 - blue for unfocused windows
+    unfocused_fg = "#ECEFF4"  # shade1 - white text for unfocused windows
+
     if not window_data:
-        return "%{B#D8DEE9}%{F#2E3440}  Desktop  %{F-}%{B-}"
+        # Start with the background color
+        return f"%{{B{bg_color}}}%{{F{focused_fg}}}  Desktop  %{{F-}}%{{B-}}"
     
-    formatted_output = ""
+    # Start with polybar's background color transitioning to our section
+    formatted_output = f"%{{B{bg_color}}}"
     
     for window in window_data:
         title = window["title"]
@@ -85,10 +82,13 @@ def format_for_polybar(window_data):
         # Format based on focus state
         if is_focused:
             # Focused window - white background, dark text
-            formatted_output += f"%{{B#ECEFF4}}%{{F#2E3440}}  {title}  %{{F-}}%{{B-}}"
+            formatted_output += f"%{{B{focused_bg}}}%{{F{focused_fg}}}  {title}  %{{F-}}%{{B{bg_color}}}"
         else:
             # Unfocused window - blue background, light text
-            formatted_output += f"%{{B#5E81AC}}%{{F#ECEFF4}}  {title}  %{{F-}}%{{B-}}"
+            formatted_output += f"%{{B{unfocused_bg}}}%{{F{unfocused_fg}}}  {title}  %{{F-}}%{{B{bg_color}}}"
+    
+    # End with transition back to default background
+    formatted_output += "%{B-}"
     
     return formatted_output
 
