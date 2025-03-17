@@ -48,6 +48,8 @@ gcc
 sudo
 doas
 meson
+libsystemd-dev
+gnutls-dev
 
 # Window manager related
 picom
