@@ -47,25 +47,17 @@ libimlib2-dev
 gcc
 sudo
 doas
+meson
 
 # Window manager related
 picom
-suckless-tools
-dmenu
 
 # Fonts
-fonts-dejavu
-fonts-liberation
-fonts-noto
-fonts-noto-cjk
 
 # Utilities
 feh
-pcmanfm
 lxappearance
 scrot
-dunst
-nitrogen
 
 # Web browsers
 chromium
@@ -76,7 +68,8 @@ alacritty
 # Additional tools
 rofi
 ranger
-neofetch
+fastfetch
+
 EOF
 
 # Install packages from dependencies.txt
