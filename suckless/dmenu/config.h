@@ -6,7 +6,7 @@ static int min_width = 500;                    /* minimum width when centered */
 static int instant = 1;
 /* -fn option overrides fonts[0]; default X11 font or font set */
 static const char *fonts[] = {
-	"monospace:size=14"
+	"cherry:pixelsize=13"
 };
 static const char *prompt      = NULL;      /* -p  option; prompt to the left of input field */
 

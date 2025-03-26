@@ -5,9 +5,10 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-//static char *font = "Comic Mono:pixelsize=14:antialias=true:autohint=true";
+//static char *font = "Comic Code:size=13:antialias=true:autohint=true";
 static char *font = "cherry:pixelsize=13:antialias=true:autohint=true";
 static int borderpx = 14;
+//static char *font = "tewii:pixelsize=11:antialias=true:autohint=true";
 
 /*
  * What program is execed by st depends of these precedence rules:

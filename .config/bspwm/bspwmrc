@@ -21,15 +21,15 @@ bspc config automatic_scheme spiral
 
 # autostart programs
 
-#/home/sebastian/autostart.sh
 killall sxhkd
 sxhkd &
 killall picom
 picom &
-xrandr --output Virtual-1 --mode "1920x1080"
 feh --bg-scale /home/smooth/background/wall.png
 xinput set-prop 13 287 2.4
 xset r rate 250 50
+
 polybar&
 qjackctl --start
+
 termite
