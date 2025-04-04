@@ -39,7 +39,7 @@ function mkcd {
     mkdir -p "$1" && cd "$1"
 }
 
-function extract {
+function ex {
     if [ ! -f "$1" ]; then
         echo "'$1' is not a valid file"
         return 1
@@ -66,7 +66,7 @@ function get_git_branch {
 }
 
 # Prompt with Git branch
-PS1='${HOSTNAME}:${PWD##*/}$(get_git_branch 2>/dev/null | sed "s/^/ (/;s/$/)/") $ '
+PS1='${USER}@$(hostname):$(if [[ "${PWD#$HOME}" != "$PWD" ]]; then print -n "~${PWD#$HOME}"; else print -n "${PWD}"; fi)$(get_git_branch 2>/dev/null | sed "s/^/ (/;s/$/)/") $ '
 
 # Add user's bin directory to PATH if it exists
 if [ -d "$HOME/bin" ]; then

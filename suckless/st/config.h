@@ -5,9 +5,14 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-//static char *font = "Comic Code:size=13:antialias=true:autohint=true";
-static char *font = "cherry:pixelsize=13:antialias=true:autohint=true";
+static char *font = "Comic Code:pixelsize=18:antialias=true:autohint=true";
+//static char *font = "cherry:pixelsize=13:antialias=true:autohint=true";
+//static char *font = "kirsch PCF:pixelsize=13:antialias=true:autohint=true";
+//static char *font = "Liberation Mono:pixelsize=18:antialias=true:autohint=true";
+//static char *font = "Mx437 NEC APC3 8x16:pixelsize=16:antialias=true:autohint=true";
+//static char *font = "Source Code Pro:pixelsize=20:antialias=true:autohint=true";
 static int borderpx = 14;
+//static char *font ="DejaVu Sans Mono:pixelssize=30:antialias=true:autohint=true";
 //static char *font = "tewii:pixelsize=11:antialias=true:autohint=true";
 
 /*
@@ -73,7 +78,7 @@ static unsigned int cursorthickness = 2;
  * bell volume. It must be a value between -100 and 100. Use 0 for disabling
  * it
  */
-static int bellvolume = 5;
+static int bellvolume = 90;
 
 /* default TERM value */
 char *termname = "st-256color";
@@ -98,42 +103,42 @@ unsigned int tabspaces = 8;
 /* bg opacity */
 float alpha = 0.95;
 
-/* Terminal colors (16 first used in escape sequence) */
+/* PaperColor Light Theme for st (Simple Terminal) */
+
 static const char *colorname[] = {
-  /* 8 normal colors */
-  [0] = "#3b4252", /* black   */
-  [1] = "#bf616a", /* red     */
-  [2] = "#a3be8c", /* green   */
-  [3] = "#ebcb8b", /* yellow  */
-  [4] = "#81a1c1", /* blue    */
-  [5] = "#b48ead", /* magenta */
-  [6] = "#88c0d0", /* cyan    */
-  [7] = "#e5e9f0", /* white   */
+    /* 8 normal colors */
+    "#000000", /* black   */
+    "#aa0000", /* red     */
+    "#00aa00", /* green   */
+    "#aa5500", /* yellow  */
+    "#0000aa", /* blue    */
+    "#aa00aa", /* magenta */
+    "#00aaaa", /* cyan    */
+    "#aaaaaa", /* white   */
+    
+    /* 8 bright colors */
+    "#555555", /* black   */
+    "#ff5555", /* red     */
+    "#55ff55", /* green   */
+    "#ffff55", /* yellow  */
+    "#5555ff", /* blue    */
+    "#ff55ff", /* magenta */
+    "#55ffff", /* cyan    */
+    "#ffffff", /* white   */
 
-  /* 8 bright colors */
-  [8]  = "#4c566a", /* black   */
-  [9]  = "#bf616a", /* red     */
-  [10] = "#a3be8c", /* green   */
-  [11] = "#ebcb8b", /* yellow  */
-  [12] = "#81a1c1", /* blue    */
-  [13] = "#b48ead", /* magenta */
-  [14] = "#8fbcbb", /* cyan    */
-  [15] = "#eceff4", /* white   */
-
-  /* special colors */
-  [256] = "#2e3440", /* background */
-  [257] = "#d8dee9", /* foreground */
+    [255] = 0,
+    
+    /* more colors can be added after 255 to use with DefaultXX */
+    "#aaaaaa", /* foreground color */
+    "#000000", /* background color */
+    "#b8b8b8", /* cursor */
 };
 
-/*
- * Default colors (colorname index)
- * foreground, background, cursor
- */
-unsigned int defaultfg = 257;
-unsigned int defaultbg = 256;
-static unsigned int defaultcs  = 257;
-static unsigned int defaultrcs = 257;
-
+/* Default colors (colorname index) */
+unsigned int defaultfg = 256;
+unsigned int defaultbg = 257;
+static unsigned int defaultcs = 258;
+static unsigned int defaultrcs = 258;
 
 /*
  * https://invisible-island.net/xterm/ctlseqs/ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-SP-q.1D81
