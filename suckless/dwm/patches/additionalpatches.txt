@@ -1,0 +1,5 @@
+1) cycle layout
+2) horizontal layout
+3) changed padding of tags
+4) remvoed rectangle / indicator in bar
+5) moved title away, replaced with clock in center.
